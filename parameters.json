@@ -1,0 +1,14 @@
+{
+    "city": {
+        "params": "",
+        "headers": {},
+        "selector": "",
+        "host": ""
+    },
+    "weather": {
+        "params": "",
+        "headers": {},
+        "selector": "",
+        "host": ""
+    }
+}
