@@ -34,7 +34,12 @@ traduction = {
     '1' : 'Pas de pluie',
     '2' : 'Pluie faible',
     '3' : 'Pluie modérée',
-    '4' : 'Pluie forte'
+    '4' : 'Pluie forte',
+    '5' : '5',
+    '6' : '6',
+    '7' : '7',
+    '8' : '8',
+    '9' : '9'
 }
 
 def __fetch_weather_xml_data(host, selector, params, headers, city_id):
@@ -97,14 +102,14 @@ def __print_forecasts(forecasts):
     for i in range(1, 7):
         start = now.strftime("%H:%M")
         end = (now + datetime.timedelta(minutes=5)).strftime("%H:%M")
-        print ("[{0} - {1}]  {2}").format(start, end, traduction[forecasts[0]])
+        print ("[{0} - {1}]  {2}").format(start, end, traduction[forecasts[i]])
         now += datetime.timedelta(minutes=5)
 
     # Next Half an hour
     for i in range(7, 10):
         start = now.strftime("%H:%M")
         end = (now + datetime.timedelta(minutes=10)).strftime("%H:%M")
-        print ("[{0} - {1}]  {2}").format(start, end, traduction[forecasts[0]]) 
+        print ("[{0} - {1}]  {2}").format(start, end, traduction[forecasts[i]]) 
         now += datetime.timedelta(minutes=10)
         
 def search(parameters_path, city_id):
