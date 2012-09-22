@@ -32,8 +32,9 @@ import datetime
 traduction = {
     '0' : 'Pas de données disponibles',
     '1' : 'Pas de pluie',
-    '2' : '2',
-    '3' : '3'
+    '2' : 'Pluie faible',
+    '3' : 'Pluie modérée',
+    '4' : 'Pluie forte'
 }
 
 def __fetch_weather_xml_data(host, selector, params, headers, city_id):
