@@ -77,7 +77,7 @@ def __getElementValueByTagName(node, tagName):
     return value
     
 
-def __parse_xml_data(xml_data):
+def __get_forecasts_from_xml_data(xml_data):
     
     try:
         
@@ -132,6 +132,6 @@ def search(parameters_path, city_id):
     xml_data = __fetch_weather_xml_data(host, selector, params, headers, city_id)
 
     # Parse and print informations
-    forecasts = __parse_xml_data(xml_data)
+    forecasts = __get_forecasts_from_xml_data(xml_data)
     __print_forecasts(forecasts)
 

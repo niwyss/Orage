@@ -24,7 +24,7 @@ import sys
 import os
 
 from modules import city
-from modules import weather
+from modules import rain
 
 # Informations on the product
 product_name = "orage"
@@ -45,9 +45,9 @@ def parse_arguments():
     parser_city = subparser.add_parser('city', help='search city id')
     parser_city.add_argument('name', help='name of the city')
    
-    # Create the parser for the "weather" command
-    parser_weather = subparser.add_parser('weather', help='display weather forecast for a city')
-    parser_weather.add_argument('id', action='store', help='id of the city')
+    # Create the parser for the "rain" command
+    parser_rain = subparser.add_parser('rain', help='display rain forecast for a city')
+    parser_rain.add_argument('id', action='store', help='id of the city')
      
     return parser.parse_args()
 
@@ -75,12 +75,12 @@ if args.command_name == 'city':
     # Search city
     city.search(parameters_path, args.name)
     
-# Command : weather
-elif args.command_name == 'weather':
+# Command : rain
+elif args.command_name == 'rain':
 
     # The default parameters
     parameters_path = path + 'parameters.json'
 
-    # Featch weather forecast for a city
-    weather.search(parameters_path, args.id)
+    # Featch rain forecast for a city
+    rain.search(parameters_path, args.id)
 
