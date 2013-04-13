@@ -95,22 +95,28 @@ def __print_forecasts(forecasts):
 
     now = datetime.datetime.now()
 
-    # Start
-    print ("[xx:xx - {0}]  {1}").format(now.strftime("%H:%M"), traduction[forecasts[0]])
+    if len(forecasts) == 10:
 
-    # First Half an hour
-    for i in range(1, 7):
-        start = now.strftime("%H:%M")
-        end = (now + datetime.timedelta(minutes=5)).strftime("%H:%M")
-        print ("[{0} - {1}]  {2}").format(start, end, traduction[forecasts[i]])
-        now += datetime.timedelta(minutes=5)
-
-    # Next Half an hour
-    for i in range(7, 10):
-        start = now.strftime("%H:%M")
-        end = (now + datetime.timedelta(minutes=10)).strftime("%H:%M")
-        print ("[{0} - {1}]  {2}").format(start, end, traduction[forecasts[i]]) 
-        now += datetime.timedelta(minutes=10)
+        # Start
+        print ("[xx:xx - {0}]  {1}").format(now.strftime("%H:%M"), traduction[forecasts[0]])
+        
+        # First Half an hour
+        for i in range(1, 7):
+            start = now.strftime("%H:%M")
+            end = (now + datetime.timedelta(minutes=5)).strftime("%H:%M")
+            print ("[{0} - {1}]  {2}").format(start, end, traduction[forecasts[i]])
+            now += datetime.timedelta(minutes=5)
+            
+        # Next Half an hour
+        for i in range(7, 10):
+            start = now.strftime("%H:%M")
+            end = (now + datetime.timedelta(minutes=10)).strftime("%H:%M")
+            print ("[{0} - {1}]  {2}").format(start, end, traduction[forecasts[i]]) 
+            now += datetime.timedelta(minutes=10)
+    
+    else:
+        print "No data to print ... (Try another city code)"
+    
         
 def search(parameters_path, city_id):
 
@@ -134,4 +140,4 @@ def search(parameters_path, city_id):
     # Parse and print informations
     forecasts = __get_forecasts_from_xml_data(xml_data)
     __print_forecasts(forecasts)
-
+    
